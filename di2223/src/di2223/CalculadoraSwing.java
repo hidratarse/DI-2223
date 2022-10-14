@@ -46,7 +46,7 @@ class Marco extends JFrame{
 		
 		setTitle("Calculadora");
 		
-		Image icono=pantalla.getImage("https://p.kindpng.com/picc/s/107-1075239_pokeball-pixel-png-png-download-pokeball-pixel-art.png");
+		Image icono=pantalla.getImage("https://www.seekpng.com/png/detail/604-6049751_pixel-art-poke-ball.png");
 		
 		setIconImage(icono);
 		
