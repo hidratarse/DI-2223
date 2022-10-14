@@ -1,7 +1,5 @@
 package di2223;
 
-import java.awt.Frame;
-
 import javax.swing.*;
 
 public class CalculadoraSwing {
