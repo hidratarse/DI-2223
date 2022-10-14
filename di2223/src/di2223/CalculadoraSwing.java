@@ -1,5 +1,7 @@
 package di2223;
 
+import java.awt.Frame;
+
 import javax.swing.*;
 
 public class CalculadoraSwing {
@@ -17,6 +19,10 @@ class Marco extends JFrame{
 	private static final long serialVersionUID = 1L;
 
 	public Marco() {
-		setSize(500, 300);
+		//setSize(500, 300);
+		setBounds(500,300, 600, 600);
+		//setExtendedState(Frame.MAXIMIZED_BOTH);
+		
+		setTitle("Calculadora");
 	}
 }
