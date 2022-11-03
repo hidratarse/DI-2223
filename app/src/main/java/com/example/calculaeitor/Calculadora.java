@@ -11,7 +11,11 @@ public class Calculadora extends AppCompatActivity {
     TextView result;
     Button cero, uno,dos,tres,cuatro,cinco, seis, siete, ocho, nueve, igual, suma, resta, multi, divi, borrado;
     int var, var2;
-    boolean operado=false;
+    boolean sumando=false;
+    boolean restando=false;
+    boolean multiplicando=false;
+    boolean dividiendo=false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,31 +39,164 @@ public class Calculadora extends AppCompatActivity {
         divi=findViewById(R.id.dividir);
         borrado=findViewById(R.id.C);
 
-
+        result.setText(null);
 
         uno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                var=Integer.parseInt(result.getText().toString());
-                if (var==0 || operado) {
-                    result.setText("1");
-                    operado=false;
-                }else{
-                    result.setText(var+"1");
-                }
+                result.setText(result.getText()+"1");
             }
         });
 
         dos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                var=Integer.parseInt(result.getText().toString());
-                if (var==0 || operado) {
-                    result.setText("2");
-                    operado=false;
+                result.setText(result.getText()+"2");
+            }
+        });
+
+        tres.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                result.setText(result.getText()+"3");
+            }
+        });
+
+        cuatro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                result.setText(result.getText()+"4");
+            }
+        });
+
+        cinco.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                result.setText(result.getText()+"5");
+            }
+        });
+
+        seis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                result.setText(result.getText()+"6");
+            }
+        });
+
+        siete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                result.setText(result.getText()+"7");
+            }
+        });
+
+        ocho.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                result.setText(result.getText()+"8");
+            }
+        });
+
+        nueve.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                result.setText(result.getText()+"9");
+            }
+        });
+
+        cero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                result.setText(result.getText()+"0");
+            }
+        });
+        
+        suma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (result == null) {
+                    result.setText("");
                 }else{
-                    result.setText(var+"2");
+                    var = Integer.parseInt(result.getText()+"");
+                    sumando=true;
+                    result.setText(null);
                 }
+            }
+        });
+
+        resta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (result == null) {
+                    result.setText("");
+                }else{
+                    var = Integer.parseInt(result.getText()+"");
+                    restando=true;
+                    result.setText(null);
+                }
+            }
+        });
+
+        multi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (result == null) {
+                    result.setText("");
+                }else{
+                    var = Integer.parseInt(result.getText()+"");
+                    multiplicando=true;
+                    result.setText(null);
+                }
+            }
+        });
+
+        divi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (result == null) {
+                    result.setText("");
+                }else{
+                    var = Integer.parseInt(result.getText()+"");
+                    dividiendo=true;
+                    result.setText(null);
+                }
+            }
+        });
+
+        igual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                var2=Integer.parseInt(result.getText()+"");
+                if (sumando){
+                    result.setText(String.valueOf(var+var2));
+                    sumando=false;
+                }
+                if (restando){
+                    result.setText(String.valueOf(var-var2));
+                    restando=false;
+                }
+
+                if (multiplicando){
+                    result.setText(String.valueOf(var*var2));
+                    multiplicando=false;
+                }
+
+                if (dividiendo){
+                    if (var2==0){
+                        result.setText("");
+                    }
+                    else{
+                        result.setText(String.valueOf(var/var2));
+                    }
+                    dividiendo=false;
+                }
+            }
+        });
+
+        borrado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                result.setText("");
             }
         });
     }
